@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --font-display: 'Stack Sans Text', sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-primary: #875cf5;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
