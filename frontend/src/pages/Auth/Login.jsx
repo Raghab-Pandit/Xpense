@@ -60,7 +60,7 @@ const Login = () => {
 
           {/* Password */}
           <label className={`mt-3 ml-2 ${formik.touched.password && formik.errors.password ? 'text-red-600' : 'text-slate-600'}`}>Password</label>
-          <div className={`w-full h-12 p-2 mt-1 flex border-2 rounded-2xl bg-gray-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : 'border-blue-500'}`}>
+          <div className={`w-70 h-12 p-2 mt-1 flex border-2 rounded-2xl bg-gray-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : 'border-blue-500'}`}>
               <input
                 type={showPassword ? 'text' : 'password'}
                 name='password'
@@ -77,7 +77,7 @@ const Login = () => {
                 </button>}
               </div>
           </div>
-          <div className="h-3 w-full flex items-center justify-start p-2 mt-2">
+          <div className="h-3 w-70 flex items-center justify-start p-2 mt-2">
           {formik.touched.password && formik.errors.password && (
               <p className='text-[12px] text-red-500 font-semibold'>*{formik.errors.password}</p>
             )}
@@ -85,7 +85,7 @@ const Login = () => {
 
           {/* SUBMIT BUTTON */}
 
-          <button type='submit' className="btn-primary">
+          <button type='submit' className="btn-primary w-full">
             LOGIN
           </button>
 
