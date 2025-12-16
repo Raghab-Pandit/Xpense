@@ -4,10 +4,12 @@ import { useFormik } from 'formik';
 import { registerSchema } from '../../ValidationSchema/registerSchema';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import ProfilePicSelector from '../../components/ProfilePicSelector';
 
 const SignUp = () => {
     // STATES
     const [showPassword, setShowPassword]= useState(false);
+    const [profilePic, setProfilePic]= useState('');
   
   
     const togglePassword = ()=>{
@@ -35,8 +37,11 @@ const SignUp = () => {
         <h3 className="text-xl font-semibold text-black">Create An Account</h3>
         <p className="text-xs text-slate-500 mt-1.25 mb-6">Join xPense and examine your finances</p>
 
-        <form onSubmit={formik.handleSubmit} className='w-140 h-auto'>
-          <div className="grid grid-cols-2 space-x-2">
+        <form onSubmit={formik.handleSubmit} className='w-140 h-auto flex flex-col items-center space-y-3'>
+
+          <ProfilePicSelector image={profilePic} setImage={setProfilePic} />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 space-x-2">
           {/* FULL NAME */}
         <div className="">
           <label className={`ml-2 ${formik.touched.fullname && formik.errors.fullname ? 'text-red-600' : 'text-slate-600'}`}>Full Name</label>
@@ -99,7 +104,7 @@ const SignUp = () => {
                 </button>}
               </div>
           </div>
-          <div className="h-3 w-full flex items-center justify-start p-2 mt-2">
+          <div className="h-3 flex items-center justify-start p-2 mt-2">
           {formik.touched.password && formik.errors.password && (
               <p className='text-[12px] text-red-500 font-semibold'>*{formik.errors.password}</p>
             )}
@@ -130,7 +135,7 @@ const SignUp = () => {
 
           {/* SUBMIT BUTTON */}
 
-          <button type='submit' className="btn-primary">
+          <button type='submit' className="btn-primary w-[50%]">
             Sign Up
           </button>
 
