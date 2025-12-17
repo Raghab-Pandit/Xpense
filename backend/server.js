@@ -2,11 +2,14 @@ import dotenv from "dotenv"
 import express from "express"
 import cors from "cors" // Feature in web browser that controls how resources like APIs on one domain can be accessed by a webpage
 import path from "path"
+import authRoutes from './routes/authRoutes.js'
 import { fileURLToPath } from "url" // coverts URL to a filepath
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-import { connectDB } from './config/db'
+import { connectDB } from './config/db.js'
+
+dotenv.config()
 
 const app = express();
 
@@ -23,6 +26,8 @@ app.use(
 app.use(express.json());
 
 connectDB();
+
+app.use('/api/v1/auth', authRoutes)
 
 const PORT= process.env.PORT || 5000;
 
